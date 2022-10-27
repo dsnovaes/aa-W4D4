@@ -57,3 +57,24 @@ describe Array do
 
 end
 
+describe "#stock_picker" do
+    subject(:stocks) { [10,13,50,23,19,8,27,49] }
+
+    it "should receive an array" do
+        expect(stocks).to be_an(Array)
+    end
+
+    it "should return a pair of days with the highest range" do
+        expect(stock_picker(stocks)).to eq([5,7])
+        expect(stock_picker(stocks).length).to eq(2)
+    end
+
+    it "the first element index must be smaller than the second in the original array" do
+        expect(stock_picker(stocks)[0]).to be < stock_picker(stocks)[-1]
+    end
+
+    it "the resulting array should be sorted" do
+        expect(stock_picker(stocks)).to_not eq([7,5])
+    end
+
+end

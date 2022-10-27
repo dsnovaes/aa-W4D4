@@ -36,13 +36,16 @@ class Array
 
 end
 
-[10,13,50,23,19,8,27,49]
-
-pairs = {}
-if idx2 > idx1
-    pairs[ele2-ele1] = [ele1,ele2]
-
-# max difference
-# pair
-# if idx2 > idx1 && the difference between the two is greater than 
-# return the indexes of the two with the max difference
+def stock_picker(array)
+    max_difference = 0
+    pair = []
+    (0...array.length).each do |i|
+        (0...array.length).each do |j|
+            if j > i && (array[j] - array[i]) > max_difference
+                max_difference = (array[j] - array[i])
+                pair = [i,j]
+            end
+        end
+    end
+    pair
+end
