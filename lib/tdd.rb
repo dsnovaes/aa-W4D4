@@ -22,8 +22,27 @@ class Array
         summed
     end
 
+    def my_transpose
+        cols = Array.new(self.length){Array.new(self.length)}
+
+        (0...self.length).each do |i|
+            (0...self.length).each do |j|
+                cols[i][j] = self[j][i]
+            end
+            j = 0
+        end
+        cols
+    end
+
 end
 
-# p [1,1,2,2,3,4,4].my_uniq
+[10,13,50,23,19,8,27,49]
 
-# p [-1, 0, 2, -2, 1].two_sum
+pairs = {}
+if idx2 > idx1
+    pairs[ele2-ele1] = [ele1,ele2]
+
+# max difference
+# pair
+# if idx2 > idx1 && the difference between the two is greater than 
+# return the indexes of the two with the max difference

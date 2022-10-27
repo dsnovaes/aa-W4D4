@@ -33,5 +33,27 @@ describe Array do
 
     end
 
+    describe "#my_transpose" do 
+        subject(:rows) {[[0, 1, 2], [3, 4, 5], [6, 7, 8]]}
+    
+        it "should be called on an array" do
+            expect(rows).to be_an(Array)
+        end
+
+        it "should return a nested array with tranposed version of original array" do
+            expect(rows.my_transpose).to eq(rows.transpose)
+        end
+
+        it "should return a nested array with the same length as the original array" do
+            expect(rows.my_transpose.length).to eq(rows.length)
+            expect(rows.my_transpose.flatten.length).to eq(rows.flatten.length)
+        end
+
+        it "should not use built in array#transpose" do 
+            expect(rows.my_transpose).not_to receive(:transpose)
+        end
+
+    end
+
 end
 
